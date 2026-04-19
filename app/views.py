@@ -53,4 +53,4 @@ def home(request):
         "email": "gilbert@example.com",
         "location": "Kigali, Rwanda",
     }
-    return render(request, "app/index.html", context)
+    return render(request, "index.html", context)

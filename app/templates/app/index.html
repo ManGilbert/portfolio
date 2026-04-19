@@ -1,0 +1,159 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ name }} | Portfolio</title>
+    <meta name="description" content="Personal portfolio website for {{ name }}.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'app/styles.css' %}">
+</head>
+<body>
+    <div class="page-shell">
+        <div class="ambient ambient-one"></div>
+        <div class="ambient ambient-two"></div>
+
+        <header class="site-header">
+            <a class="brand" href="#home">IG</a>
+            <nav class="site-nav" id="site-nav">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme">
+                    <span class="theme-toggle__icon"></span>
+                </button>
+                <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open menu">
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero section" id="home">
+                <div class="hero-copy reveal">
+                    <p class="eyebrow">Modern Web Portfolio</p>
+                    <h1>{{ name }}</h1>
+                    <h2>{{ title }}</h2>
+                    <p class="hero-text">{{ intro }}</p>
+                    <div class="hero-actions">
+                        <a class="button button-primary" href="#projects">See Projects</a>
+                        <a class="button button-secondary" href="#contact">Contact Me</a>
+                    </div>
+                </div>
+                <div class="hero-card reveal reveal-delay">
+                    <div class="hero-card__screen">
+                        <span class="status-dot"></span>
+                        <p class="hero-card__label">Available for creative web work</p>
+                        <div class="hero-metrics">
+                            <article>
+                                <strong>3+</strong>
+                                <span>Showcase projects</span>
+                            </article>
+                            <article>
+                                <strong>10+</strong>
+                                <span>Core technologies</span>
+                            </article>
+                            <article>
+                                <strong>100%</strong>
+                                <span>Responsive mindset</span>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about section" id="about">
+                <div class="section-heading reveal">
+                    <p class="eyebrow">About Me</p>
+                    <h3>Design-conscious development with a strong focus on clarity and impact.</h3>
+                </div>
+                <div class="about-grid">
+                    <article class="about-panel reveal">
+                        <p>{{ about }}</p>
+                    </article>
+                    <article class="about-panel reveal reveal-delay">
+                        <ul class="detail-list">
+                            <li><span>Name</span><strong>{{ name }}</strong></li>
+                            <li><span>Role</span><strong>{{ title }}</strong></li>
+                            <li><span>Location</span><strong>{{ location }}</strong></li>
+                            <li><span>Email</span><strong>{{ email }}</strong></li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+
+            <section class="skills section" id="skills">
+                <div class="section-heading reveal">
+                    <p class="eyebrow">Skills / Technologies</p>
+                    <h3>Tools and technologies I use to shape polished, user-friendly products.</h3>
+                </div>
+                <div class="chip-grid reveal">
+                    {% for skill in skills %}
+                    <span class="skill-chip">{{ skill }}</span>
+                    {% endfor %}
+                </div>
+            </section>
+
+            <section class="projects section" id="projects">
+                <div class="section-heading reveal">
+                    <p class="eyebrow">Projects</p>
+                    <h3>A few ideas that show how I approach interface design and implementation.</h3>
+                </div>
+                <div class="project-grid">
+                    {% for project in projects %}
+                    <article class="project-card reveal">
+                        <p class="project-index">0{{ forloop.counter }}</p>
+                        <h4>{{ project.title }}</h4>
+                        <p>{{ project.description }}</p>
+                        <ul class="stack-list">
+                            {% for item in project.stack %}
+                            <li>{{ item }}</li>
+                            {% endfor %}
+                        </ul>
+                        <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer">View Project</a>
+                    </article>
+                    {% endfor %}
+                </div>
+            </section>
+
+            <section class="contact section" id="contact">
+                <div class="section-heading reveal">
+                    <p class="eyebrow">Contact</p>
+                    <h3>Let’s build something thoughtful, modern, and memorable together.</h3>
+                </div>
+                <div class="contact-grid">
+                    <article class="contact-panel reveal">
+                        <p>If you want a portfolio, landing page, or polished web interface, I’d love to hear about it.</p>
+                        <div class="contact-links">
+                            <a href="mailto:{{ email }}">{{ email }}</a>
+                            <span>{{ location }}</span>
+                        </div>
+                    </article>
+                    <form class="contact-form reveal reveal-delay">
+                        <label for="contact-name">Name</label>
+                        <input id="contact-name" name="name" type="text" placeholder="Your name">
+
+                        <label for="contact-email">Email</label>
+                        <input id="contact-email" name="email" type="email" placeholder="Your email">
+
+                        <label for="contact-message">Message</label>
+                        <textarea id="contact-message" name="message" rows="5" placeholder="Tell me about your project"></textarea>
+
+                        <button class="button button-primary" type="submit">Send Message</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="{% static 'app/script.js' %}"></script>
+</body>
+</html>

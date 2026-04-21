@@ -4,6 +4,12 @@ const siteNav = document.getElementById("site-nav");
 const revealItems = document.querySelectorAll(".reveal");
 const savedTheme = localStorage.getItem("portfolio-theme");
 
+// Set current year in footer
+const yearElement = document.getElementById("year");
+if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+}
+
 if (savedTheme === "light") {
     document.body.classList.add("light-theme");
 }

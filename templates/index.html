@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="{% static 'app/styles.css' %}">
 </head>
 <body>
@@ -17,12 +18,13 @@
         <div class="ambient ambient-two"></div>
 
         <header class="site-header">
-            <a class="brand" href="#home">IG</a>
+            <a class="brand" href="#home">GI</a>
             <nav class="site-nav" id="site-nav">
                 <a href="#home">Home</a>
                 <a href="#about">About</a>
                 <a href="#skills">Skills</a>
                 <a href="#projects">Projects</a>
+                <a href="#resume">Resume</a>
                 <a href="#contact">Contact</a>
             </nav>
             <div class="header-actions">
@@ -79,14 +81,19 @@
                     <article class="about-panel reveal">
                         <p>{{ about }}</p>
                     </article>
-                    <article class="about-panel reveal reveal-delay">
-                        <ul class="detail-list">
-                            <li><span>Name</span><strong>{{ name }}</strong></li>
-                            <li><span>Role</span><strong>{{ title }}</strong></li>
-                            <li><span>Location</span><strong>{{ location }}</strong></li>
-                            <li><span>Email</span><strong>{{ email }}</strong></li>
-                        </ul>
-                    </article>
+                    <div class="about-sidebar reveal reveal-delay">
+                        <div class="profile-image-wrapper">
+                            <img src="{% static 'app/images/profile.jpg' %}" alt="{{ name }}" class="profile-image">
+                        </div>
+                        <article class="about-panel">
+                            <ul class="detail-list">
+                                <li><span>Name</span><strong>{{ name }}</strong></li>
+                                <li><span>Role</span><strong>{{ title }}</strong></li>
+                                <li><span>Location</span><strong>{{ location }}</strong></li>
+                                <li><span>Email</span><strong>{{ email }}</strong></li>
+                            </ul>
+                        </article>
+                    </div>
                 </div>
             </section>
 
@@ -123,7 +130,78 @@
                     {% endfor %}
                 </div>
             </section>
+            <section class="resume section" id="resume">
+                <div class="section-heading reveal">
+                    <p class="eyebrow">Experience & Education</p>
+                    <h3>My journey in software development and continuous learning.</h3>
+                </div>
 
+                <div class="resume-grid">
+                    <article class="resume-panel reveal">
+                        <h4>My Expertise</h4>
+                        <p class="resume-subtitle">These are the roles where I shipped features, solved issues, and supported real users.</p>
+                        
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <h5>Software Developer</h5>
+                                <span class="experience-company">Nexcode</span>
+                            </div>
+                            <span class="experience-period">2023 - Present</span>
+                            <ul class="experience-list">
+                                <li>I deliver backend and frontend features with a strong focus on reliability and maintainability.</li>
+                                <li>I handle debugging, issue analysis, and release support to keep systems stable for end users.</li>
+                            </ul>
+                        </div>
+
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <h5>Software Developer</h5>
+                                <span class="experience-company">IDA Technology</span>
+                            </div>
+                            <span class="experience-period">2023 - 2024</span>
+                            <ul class="experience-list">
+                                <li>I contributed to integrations, business logic, and client-facing requirements across active projects.</li>
+                                <li>I strengthened my practical engineering skills while earning industrial training recognition.</li>
+                            </ul>
+                        </div>
+
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <h5>Full Stack Developer</h5>
+                                <span class="experience-company">Rwanda Special Materials</span>
+                            </div>
+                            <span class="experience-period">2022 - 2024</span>
+                            <ul class="experience-list">
+                                <li>I built and supported a factory management platform covering orders, payments, production monitoring, and inventory.</li>
+                                <li>I translated day-to-day operational workflows into software used by teams and business stakeholders.</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="resume-panel reveal reveal-delay">
+                        <h4>Education Background</h4>
+                        <p class="resume-subtitle">My formal training supports the practical engineering work I do today.</p>
+                        
+                        <div class="education-item">
+                            <div class="education-header">
+                                <h5>Bachelor's Degree in Software Engineering</h5>
+                                <span class="education-school">Kigali Independent University</span>
+                            </div>
+                            <span class="education-period">2022 - 2026</span>
+                            <p class="education-details">I focused on software engineering fundamentals, application development, and the practical skills needed to build and support production-ready systems.</p>
+                        </div>
+
+                        <div class="education-item">
+                            <div class="education-header">
+                                <h5>Advanced Diploma in Software Development</h5>
+                                <span class="education-school">Ecole Technique Saint Kizito</span>
+                            </div>
+                            <span class="education-period">2018 - 2021</span>
+                            <p class="education-details">I focused on software engineering fundamentals, application development, and the practical skills needed to build and support production-ready systems.</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
             <section class="contact section" id="contact">
                 <div class="section-heading reveal">
                     <p class="eyebrow">Contact</p>
@@ -135,8 +213,24 @@
                         <div class="contact-links">
                             <a href="mailto:{{ email }}">{{ email }}</a>
                             <span>{{ location }}</span>
-                        </div>
-                    </article>
+                        </div>                        <div class="social-links">
+                            <a href="https://github.com/ManGilbert" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                                <span class="social-label">GitHub</span>
+                            </a>
+                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                                <span class="social-label">Instagram</span>
+                            </a>
+                            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="X">
+                                <i class="fab fa-x-twitter"></i>
+                                <span class="social-label">X</span>
+                            </a>
+                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
+                                <i class="fab fa-facebook"></i>
+                                <span class="social-label">Facebook</span>
+                            </a>
+                        </div>                    </article>
                     <form class="contact-form reveal reveal-delay">
                         <label for="contact-name">Name</label>
                         <input id="contact-name" name="name" type="text" placeholder="Your name">
@@ -152,7 +246,46 @@
                 </div>
             </section>
         </main>
-    </div>
+
+        <footer class="site-footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h5>{{ name }}</h5>
+                    <p>{{ title }} focused on building exceptional digital experiences.</p>
+                </div>
+                <div class="footer-section">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#resume">Resume</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h5>Connect</h5>
+                    <div class="footer-social">
+                        <a href="https://github.com/ManGilbert" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="X">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="year"></span> {{ name }}. All rights reserved.</p>
+            </div>
+        </footer>
+
+            </div>
 
     <script src="{% static 'app/script.js' %}"></script>
 </body>

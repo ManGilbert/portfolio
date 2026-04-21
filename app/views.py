@@ -7,7 +7,7 @@ def home(request):
             "title": "Campus Event Hub",
             "description": "A responsive event discovery platform with streamlined browsing, RSVP flows, and admin-friendly content updates.",
             "stack": ["Django", "PostgreSQL", "Bootstrap"],
-            "link": "#",
+            "link": "https://github.com/ManGilbert",
         },
         {
             "title": "Insight Dashboard",
@@ -37,20 +37,18 @@ def home(request):
     ]
 
     context = {
-        "name": "Imanishimwe Gilbert",
-        "title": "Frontend-Focused Web Developer",
+        "name": "Gilbert Imanishimwe",
+        "title": "Full Stack Developer",
         "intro": (
-            "I build elegant, responsive digital experiences with a sharp eye for layout, motion, "
-            "and maintainable code."
+            "I am a passionate Full Stack Developer creating innovative web solutions with modern technologies."
         ),
         "about": (
-            "I'm a developer who enjoys crafting websites that feel modern, intuitive, and full of "
-            "personality. I care about clean code, strong visual hierarchy, and interfaces that work "
-            "beautifully across devices."
+            "As a Full Stack Developer based in Kigali Nyarugenge, I specialize in building modern, responsive web applications. "
+            "I have experience in various technologies and love turning ideas into reality through clean, efficient code."
         ),
         "skills": skills,
         "projects": projects,
-        "email": "gilbert@example.com",
-        "location": "Kigali, Rwanda",
+        "email": "imanishimwe.glbrt@gmail.com",
+        "location": "Kigali Nyarugenge",
     }
     return render(request, "index.html", context)
